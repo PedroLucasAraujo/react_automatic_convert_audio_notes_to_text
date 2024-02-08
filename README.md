@@ -55,5 +55,9 @@ npm run dev # or yarn dev
 ## Local Storage
 Note data is persisted locally using the browser's localStorage.
 
+## Deployment
+
+This application is deployed via Vercel.
+
 ##  Contribution
 Feel free to contribute to the project by submitting issues or creating pull requests. We welcome any feedback, bug reports, or feature suggestions.
