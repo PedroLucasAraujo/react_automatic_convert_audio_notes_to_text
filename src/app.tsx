@@ -59,8 +59,6 @@ export function App() {
 
   return (
     <div className="max-w-6xl mx-auto my-12 space-y-6 px-5">
-      <img src={logo} alt="NLW Expert" />
-
       <form className="w-full">
         <input
           type="text"

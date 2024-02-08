@@ -19,11 +19,12 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
   }
 
   function handleContentChanged(event: ChangeEvent<HTMLTextAreaElement>) {
+    setContent(event.target.value);
+
     if (event.target.value === "") {
       setShouldShowOnBoarding(true);
     }
   }
-
   function handleSaveNote(event: FormEvent) {
     event.preventDefault();
 
@@ -132,9 +133,9 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
               ) : (
                 <textarea
                   autoFocus
-                  value={content}
                   className="text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none"
                   onChange={handleContentChanged}
+                  value={content}
                 />
               )}
 
@@ -154,19 +155,11 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
               <button
                 type="button"
                 onClick={handleSaveNote}
-                className="w-full bg-lime-400 py-4 text-center text-small text-lime-950 outline-none font-medium hover:bg-lime-500"
+                className="w-full z-10 bg-lime-400 py-4 text-center text-small text-lime-950 outline-none font-medium hover:bg-lime-500"
               >
                 Salvar nota
               </button>
             )}
-
-            <button
-              type="button"
-              onClick={handleSaveNote}
-              className="w-full bg-lime-400 py-4 text-center text-small text-lime-950 outline-none font-medium hover:bg-lime-500"
-            >
-              Salvar nota
-            </button>
           </form>
         </Dialog.Content>
       </Dialog.Portal>

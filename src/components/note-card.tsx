@@ -15,9 +15,12 @@ interface NoteCardProps {
 export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
   return (
     <Dialog.Root>
-      <Dialog.Trigger className="rounded-md text-left bg-slate-800 p-5 space-y-3 overflow-hidden relative outline-none hover:ring-2 hover:bg-slate-600 focus-visible:ring-2 focus-visible:ring-lime-600">
+      <Dialog.Trigger className="rounded-md text-left bg-slate-800 flex flex-col p-5 gap-3 overflow-hidden relative hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-400 outline-none">
         <span className="text-small font-medium text-slate-300">
-          {note.date.toISOString()}
+          {formatDistanceToNow(note.date, {
+            locale: ptBR,
+            addSuffix: true,
+          })}
         </span>
         <p className="text-small leading-6 text-slate-400">{note.content}</p>
 
@@ -47,7 +50,7 @@ export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
           <button
             type="button"
             onClick={() => onNoteDeleted(note.id)}
-            className="w-full bg-slate-800 py-4 text-center text-small text-slate-300 outline-none font-medium group"
+            className="w-full z-10 bg-slate-800 py-4 text-center text-small text-slate-300 outline-none font-medium group"
           >
             Deseja{" "}
             <span className="text-red-400 group-hover:underline">
